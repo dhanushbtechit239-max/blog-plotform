@@ -21,9 +21,9 @@ const HomePage = () => {
       setLoading(true);
       try {
         const data = await postService.getAll(page, 9, search);
-        setPosts(data.posts);
-        setTotalPages(data.totalPages);
-        setTotalPosts(data.totalPosts);
+        setPosts(data?.posts || []);
+        setTotalPages(data?.totalPages || 1);
+        setTotalPosts(data?.totalPosts || 0);
       } catch (err) {
         console.error('Failed to fetch posts:', err);
       } finally {

@@ -29,7 +29,7 @@ const DashboardPage = () => {
     const fetchPosts = async () => {
       try {
         const data = await postService.getUserPosts(user._id, 1, 50);
-        setPosts(data.posts);
+        setPosts(data?.posts || []);
       } catch (err) {
         console.error('Failed to fetch posts:', err);
       } finally {
